@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<script src="./common.js" ></script>
+</head>
+<body>
+	<header>
+		<div class = "container">			
+			<div class = "row">
+				<div class = "col-1" id = "logo_img">			
+					<img src = "./assets/img/pc_cat.jpeg" width = "60px" />
+				</div>
+				<div class = "col-9" id = "logo_text">
+					<img src = "./assets/img/logo.png" width = "100px" />					
+				</div>
+			</div> 
+		</div>			
+	</header>
+
+	<!-- ナビゲーションバー -->
+	<nav class = "navbar-expand-lg navbar-dark bg-dark">
+		<div class = "container">				
+			<a class = "navbar-brand mr-auto" href = "#">TOP</a>　
+			<a class = "navbar-brand mr-auto" href = "#">台本一覧</a>　
+			<a class = "navbar-brand mr-auto" href = "#">台本投稿</a>　
+		</div>
+	</nav>
+
+	<!-- メイン領域 -->
+	<div id = "main">
+		<div class = "container">	
+			
+
+<!--    
+//======================================================
+	ここからPHPにコピペ可 
+//======================================================
+-->		
+
+
+
+<!-- フォーム -->
+<form action = "<?php echo Uri::create('script/save'); ?>" method = "post">
+
+	<!-- 見出し -->
+	<div class = "row"> 
+		<h2 class = "blue">概要　　<small class = "text-danger">※内容を確認し、問題がなければ投稿ボタンを押してください。</small></h2>
+	</div>
+
+	<!-- 説明描画用テーブル -->
+	<table id="desc_edit" class = "col-12">
+		<tr>
+			<th class = "h_txt" style="width: 20%">タイトル</th>
+			<td>
+				<?php echo $title; ?>				
+			</td>
+		</tr>
+		<tr>
+			<th class = "h_txt">作者名</th>
+			<td>
+				<?php echo $author_name; ?>					
+			</td>					
+		</tr>				
+		<tr>
+			<th class = "h_txt">ジャンル</th>
+			<td>					
+				<?php echo $genre; ?>					
+			</td>					
+		</tr>
+		<tr>
+			<th class = "h_txt">人数</th>
+			<td>
+				<?php echo $chara_count; ?>
+				人							
+			</td>					
+		</tr>
+		<tr>
+			<th class = "h_txt">時間</th>
+			<td>
+				<?php echo $minutes; ?>	
+				分					
+			</td>					
+		</tr>
+		<tr>
+			<th class = "h_txt">二次利用の可否</th>
+			<td>
+				<?php echo $reusable; ?>								
+			</td>
+		</tr>						
+		<tr>
+			<th class = "h_txt">説明</th>
+			<td>
+				<?php echo $description; ?>					
+			</td>					
+		</tr>
+	</table>
+	<!-- 送信ボタン（非表示）-->
+	<input type = "submit" id = "hidden_submit_button" class = "d-none" />
+
+	<!-- ボタン領域 -->
+	<div id = "bottom_bottun_area">
+		<div class = "row">					
+			<!-- 戻るボタン -->
+			<div class = "col-4">
+				<button type="button" class = "btn btn-outline-secondary" onclick="history.back()">戻る</button>			
+			</div>
+			<div class = "col-4 text-center">
+				<button type="button" id = "dummy_submit_button" class="btn btn-success">　　投稿　　</button>
+
+				<!-- hidden要素 -->
+				<input type = "hidden" name = "id" value = "<?php echo $id; ?>" />
+				<input type = "hidden" name = "title" value = "<?php echo $title; ?>" />
+				<input type = "hidden" name = "author_name" value = "<?php echo $author_name; ?>" />
+				<input type = "hidden" name = "chara_count" value = "<?php echo $chara_count; ?>" />
+				<input type = "hidden" name = "genre" value = "<?php echo $genre; ?>" />	
+				<input type = "hidden" name = "minutes" value = "<?php echo $minutes; ?>" />
+				<input type = "hidden" name = "explain" value = "<?php echo $explain; ?>" />												
+				<input type = "hidden" name = "reusable" value = "<?php echo $reusable; ?>" />			
+				<input type = "hidden" name = "edit_password" value = "<?php echo $edit_password; ?>" />			
+				<input type = "hidden" name = "script_body" value = "<?php echo $script_body; ?>" />			
+				
+			</div>
+			<div class = "col-4">
+			</div>
+		</div>
+	</div>
+
+	<!-- 見出し -->
+	<div class = "row"> 
+		<h2 class = "blue">キャラ説明　　<small></small></h2>
+	</div>
+
+	<!-- 説明描画用テーブル -->
+	<table id="chara_edit" class = "col-12 list">
+		<tr>
+			<th class = "h_txt" style = "width:2%"></th>
+			<th class = "h_txt" style = "width: 20%">キャラクター名</th>
+			<th class = "h_txt" style = "width: 10%">性別</th>					
+			<th class = "h_txt" style = "width: 68%">説明</th>	
+		</tr>				
+		<?php for ($i = 0; $i < $chara_count; $i++) { ?>
+		<tr>
+			<td>
+			</td>
+			<td>
+				<?php echo $chara_names[$i] ?>
+			</td>
+			<td>
+				<?php echo $chara_sexes[$i] ?>				
+			</td>					
+			<td>
+				<?php echo $chara_explains[$i] ?>
+			</td>		
+		</tr>
+		<?php } ?>
+	</table>		
+
+	<!-- 見出し -->
+	<div class = "row"> 
+		<h2 class = "blue">台本本編</h2>
+	</div>
+
+	<!-- セリフプレーンテキスト描画欄（非表示）-->
+	<div id = "script_write_area" class = "d-none">
+		<?php echo $script_body; ?>
+	</div>
+	<!-- セリフ描画欄（テーブル）-->
+	<div id = "script_show_area">
+	</div>		
+
+	<!-- 台本プレビュー用テーブル -->
+	<table id="script_preview" class = "col-12 list">
+		<tr>
+			<th class = "h_txt" style = "width:2%"></th>
+			<th class = "h_txt" style = "width: 20%">キャラクター名</th>				
+			<th class = "h_txt" style = "width: 78%">セリフ</th>	
+		</tr>			
+		<tr>
+			<td class = "check_mark">
+			</td>
+			<td>
+			</td>
+			<td>
+			</td>					
+		</tr>	
+	</table>	
+</form>	
+
+
+<!--    
+//======================================================
+	ここまでPHPにコピペ可 
+//======================================================
+-->
+
+		</div>
+	</div>
+</body>

@@ -1,0 +1,1259 @@
+/*======================================================
+/* 
+/* 1. タグ再定義
+/* 
+/*======================================================*/
+
+html {
+	overflow-y: scroll;             
+	font-size: 10px;  
+	*font-size: 62.5%;
+	padding: 0px;
+}
+
+body {
+	margin: 0;
+	width: 100%;
+	padding: 0;
+	background-color:#ffffff;/*#eceae2;#FDFCF9;*/
+	color: #000000;
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+	font-size: 140%;
+}
+
+/* ヘッダ */
+header {
+	margin: 0px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	/*background-color: #FFFFFF;	*/
+}
+/* ロゴ画像 */
+header #logo_img {
+	width: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
+	/*padding-left: 28px;*/
+	text-align: left;
+	border: solid 0px #999999;
+}
+header #logo_text {
+	padding-top: 20px;
+    margin-left: -40px;
+	border: #000000 0px solid;
+}
+header a {
+	color: #000000;
+}
+header a:hover {
+	color: #000000;
+  	text-decoration: none;
+}
+header a#pc_logo_txt {
+	padding-top: 16px;
+	font-size: 110%;
+}
+/* ナビバー */
+nav {
+	margin: 0px auto;
+	padding: 12px 40px;
+	border: #000000 0px solid;
+}
+/* ナビバー内コンテナ PC */ 
+nav#global_navi_pc .container {
+	padding: 0px 40px;
+	border: solid 0px #999999;
+}
+nav#global_navi_pc a {
+	margin-right: 30px;
+	font-size: 110%;
+}
+/* ナビバー内コンテナ モバイル */ 
+nav#global_navi_mobile .container {
+	padding: 0px 0px;
+	border: solid 0px #999999;
+}
+/* ナビバー リンク */
+nav a.nav_link {
+	color: #999999;
+}
+nav a.active {
+	color: #FFFFFF;
+}
+
+/* メイン領域 */
+div#main {
+	margin: 0px;
+}
+/* メイン領域内コンテナ */ 
+div#main .container {
+	padding: 60px 12px;
+	border: solid 0px #999999;
+}
+
+/* フッター */
+footer {
+	margin-top: 200px;
+}
+
+/* ロゴテキスト */
+h1 {
+  	padding-top: 0px;
+	font-size: 120%;
+	vertical-align: middle;
+}
+/* ロゴテキスト モバイル */
+@media only screen and (max-width: 750px) {
+	h1 {
+		margin-left: 50px;
+		font-size: 100%;		
+	}
+}
+
+h2.green {
+	width: 100%;
+	margin: 0 auto;
+	padding: 8px;
+	padding-left: 32px;
+	background: #E2EFDA;
+	position: relative;
+	font-size: 120%;
+}
+h2.green:before {
+	background: #A9D08E;
+	content: "";
+	position: absolute;
+	display: block;
+	top: 8px;
+	left: 12px;
+	width: 5px;
+	height: 20px;
+}
+h2.blue {
+	width: 98%;
+	margin: 0 auto;
+	padding: 8px;
+	padding-left: 32px;
+	background: #E7F3FA;
+	position: relative;
+	font-size: 120%;
+}
+
+h2.blue:before {
+	background: #008CCF;
+	content: "";
+	position: absolute;
+	display: block;
+	top: 8px;
+	left: 12px;
+	width: 5px;
+	height: 20px;
+}
+/* 見出し内説明 */
+h2 small {
+  color: #666666;
+}
+/* 概要説明テーブル モバイル */
+@media only screen and (max-width: 750px) {
+	h2 small {
+		font-size: 70%;
+	}
+}
+
+h3.green {
+	width: 98%;
+	margin: 0 auto;
+	padding: 12px;
+	padding-left: 32px;
+	background: #FFFFFF;
+	position: relative;
+	font-size: 110%;
+}
+h3.green:before {
+	background: #A9D08E;
+	content: "";
+	position: absolute;
+	display: block;
+	top: 10px;
+	left: 12px;
+	width: 5px;
+	height: 20px;
+}
+h4 {
+	font-size: 100%;
+}
+h5 {
+  font-size: 120%;
+}
+/* テーブル */
+table {
+	margin: 40px 0px;
+	border-collapse: collapse;
+	border: 1px solid #443510;
+}	
+tr {
+	margin: 0;
+	border-left: solid 1px #333333;
+	border-right: solid 1px #333333;
+}	
+th {
+	background: #EDE3CB; /*#dfdac7;*/	
+	border-bottom: solid 1px #666666;
+}
+td {
+	margin: 0;
+	border-top: solid 1px #AAAAAA;
+	background: #fdfdfc;
+}
+
+/*======================================================
+ *
+ * 1-2. スマホ対応
+ *
+ *======================================================*/
+
+/* スマホとタブレットのみに適用 */
+@media screen and (max-width: 768px) {
+	.side-collapse-container{
+		width:100%;
+		position:relative;
+		left:0;
+		transition:left .4s;
+	}
+	.side-collapse-container.out{
+		left:200px;
+	}
+	.side-collapse {
+		top:50px;
+		bottom:0;
+		left:0;
+		width:200px;
+		position:fixed;
+		overflow:hidden;
+		transition:width .4s;
+	}
+	.side-collapse.in {
+		width:0;
+	}
+}
+
+/*======================================================
+/* 
+/* 2. トップページ
+/* 
+/*======================================================*/
+
+/* 新着情報 */
+div#information_area {
+	width: 98%;
+	/*margin: 0px 20px 80px;*/
+	margin-bottom: 80px;
+	padding: 10px 20px 10px;
+	border: solid 1px #999999;
+  background: #FFFFFF;
+	box-shadow: 0px 0px 10px #DDDDDD;
+}
+div#information_area p {
+	margin-top: 10px;
+	padding: 40px 20px 20px;
+	border-top: solid 1px #999999;
+	font-size: 100%;
+}
+
+/*======================================================
+/* 
+/* 3-1. 台本一覧ページ
+/* 
+/*======================================================*/
+
+/* 台本件数 */
+#scriptCount {	
+	float: right;
+	margin: 4px 20px;
+	color: #777777;
+  font-family: 'Hiragino Sans', Meiryo, sans-serif;
+	/*font-size: 60%;*/
+}
+
+/* 絞り込み用エリア */
+div.search_cb_area {
+  margin-top: 40px;
+  text-align: right;
+}
+div.search_cb_area .cb_right_area {
+  text-align: right;
+  font-size: 90%;
+}
+div.search_cb_area .cb_right_area select {  
+  width: 50%;
+  max-width: 300px;
+  margin-left: 8px;
+  padding: 2px 4px;
+}
+
+/* 検索ボックス */
+div.search_cb_area #searchBox {
+    font-family: FontAwesome;		
+    margin-bottom: 20px;		
+    padding-left: 20px;
+    border: solid 1px #999999;
+    border-radius: 20px;
+}
+
+/* 一覧用テーブル */
+table.list {
+
+}
+table.list th {
+  text-align: center;
+	padding: 8px 0px;
+	border-right: #999999 1px solid;
+	border-bottom: #999999 1px solid;
+}
+table.list th:hover {
+  	cursor: pointer;
+}
+table.list td {
+	height: 60px;
+	text-align: center;
+	padding: 8px 0px;
+	border-right: #999999 1px solid;  
+}
+table.list th:last-child {
+  border-right: 1px solid rgb(61, 61, 61);
+}
+table.list td:last-child {
+  border-right: 1px solid rgb(61, 61, 61);
+}
+/* 一覧用テーブル ホバー要素 */
+table.hover tr:hover td {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+table.list th.title {
+  width: 30%;
+}
+/* タイトル */
+table.list td.title {
+  padding-left: 32px;
+  text-align: left;  
+}
+/* ジャンル */
+table.list td.genre {
+  font-size: 90%;
+}
+table.list span.genre {
+	display: block;
+	width: 80%;
+	margin: 0px auto;
+	padding: 2px 0px;
+	text-align: center;
+	font-size: 80%;
+	border-radius: 2px;	
+  border: solid 1px #999999;
+}
+
+table.list td.chara_count {
+  font-size: 100%;
+}
+table.list td.chara_sex_summary {
+  font-size: 100%;
+}
+table.list td.minutes {
+  font-size: 100%;
+}
+table.list td.author_name {
+  font-size: 90%;
+}
+table.list td.update_date {
+  font-size: 90%;
+}
+
+/* モバイル用テーブル */
+table.mobile td{
+	padding: 12px 30px; 
+	text-align: left;
+}
+/* 行内上側 */
+table.mobile .top_info_area {
+
+}
+/* タイトル */
+table.mobile td div.title {
+	padding: 0px 8px;
+	font-size: 110%;
+}
+/* ジャンル */
+table.mobile td div.genre {
+	padding: 0px;
+	vertical-align: auto;
+}
+table.mobile span.genre {
+	display: block;
+	width: 100%;
+	margin: 0px;
+	padding: 2px 0px;
+	text-align: center;
+	font-size: 80%;
+	border-radius: 2px;	
+	border: solid 1px #666666;
+}
+/* 行内下側　人数、時間、作者 */
+table.mobile .bottom_info_area {
+	margin-top: 8px;
+	padding-left: 8px;
+	color: #333333;
+	font-size: 90%;
+	text-align: left;
+}
+table.mobile span.chara_count {
+	/*display: block;*/
+	padding-left: 12px;
+	border: solid 0px #999999;	
+}
+table.mobile span.minutes {
+	/*display: block;*/
+	border: solid 0px #999999;
+}
+table.mobile span.author_name {
+	/*display: block;*/	
+	text-align: left;
+}
+
+/* ジャンルの色分け用 */
+span.genre_0 {
+	background: #e2f2fe;
+}
+span.genre_1 {
+	background: #edf9d7;
+}
+span.genre_2 {
+	background: #fbf8c4; 
+}
+span.genre_3 {
+	background: #ffe0e0;
+}
+span.genre_4 {
+	background: #f7eed0;
+}
+span.genre_5 {
+	background: #e9e9e9;
+}
+span.genre_6 {
+	background: #ffffff;
+}
+
+/* メッセージ */
+.msg_area {
+	margin-bottom: 80px;
+}
+
+/*======================================================
+/* 
+/* 3-2. 台本個別ページ
+/* 
+/*======================================================*/
+
+/* 説明テーブル */
+table#desc {
+	margin-bottom: 100px;
+    border: solid 1px #999999;  
+}
+table#desc td {
+	padding: 12px 30px;
+}
+table#desc th {
+	padding: 12px;
+	font-size: 90%;
+}
+table#desc th.h_txt {
+	padding: 12px;
+	font-size: 90%;
+	background: #f1ece1; /*#eceae2;*/
+	border-right: #999999 1px solid;
+	border-bottom: #999999 1px solid;
+}
+table#desc_edit td.title {
+	padding-right: 60px;
+}
+table#desc td.description {
+	/*white-space: pre;*/
+}
+/* 編集ボタン */
+div#edit_button_area {
+  margin: -80px 0px 80px;
+  text-align: right;
+}
+div#edit_button_area input {
+  padding: 0 20px;
+}
+
+/* 台本/作者名コピーボタン */
+.credit_copy_button_area {
+	margin: 0px;
+  position: absolute;
+  right: 16px;
+	top: 4px;
+	border: solid 0px #999999;
+}
+/* モバイル */
+@media only screen and (max-width: 750px) {
+	.credit_copy_button_area {
+		right: 8px;		
+		top: 9px;
+	}
+}
+/*======================================================
+/* キャラクターテーブル
+/======================================================*/
+
+/*　キャラクターテーブル */
+table#chara {
+	min-width: 80px;
+	padding: 8px;
+	margin: 0;
+	margin-top: 40px;	
+	margin-bottom: 120px;
+}
+table#chara tr {
+	margin: 0;
+}
+table#chara td {
+	padding: 8px 8px; 
+	background: #FFFFFF;
+}
+table#chara td.check_mark {
+    width: 1%;
+}
+table#chara td.sex {
+  width: 8%;
+  max-width: 50px;
+  padding-left: 20px;
+  text-align: left;
+	font-size: 120%;
+	font-weight: normal;
+}
+table#chara td.name span {
+	margin: auto;
+	width: 80%;
+	display: block;
+	padding: 8px 0px; /* 8px; */
+	border-radius: 4px;    
+}
+table#chara td.voice_count {
+  width: 8%;	
+	font-size: 85%;
+}
+table#chara td.description {
+  width: 69%;
+  padding-left: 30px;
+  text-align: left;
+}
+table#chara th:last-child {
+  border-right: 1px solid rgb(61, 61, 61);
+}
+table#chara td:last-child {
+  border-right: 1px solid rgb(61, 61, 61);
+}
+/* 名前 */
+td.name {
+	width: 15%;
+	min-width: 100px;
+	max-width: 160px;
+}
+td.name span {
+  	margin: auto;
+  	width: 90%;
+		display: block;
+		padding: 8px 0px;
+		border-radius: 4px;    
+}
+table#chara td.count,  table#chara td.sex {
+	padding: 8px 4px;
+	text-align: center;
+	font-size: 90%;
+	color: #333333;
+}
+table#chara td.check {
+	text-align: center;
+}
+table#chara th {
+	padding: 8px;
+	font-size: 80%;
+	text-align: center;
+}
+/* キャラの下の説明 */
+div#check_explain {
+	margin-bottom: 120px;
+	padding-left: 20px; 
+	text-align: right;
+}
+/* 色分け説明 */
+div.charaBottomExplain {
+	margin-top: -100px;
+	margin-bottom: 120px;
+	color: #666666;
+	font-size: 90%;
+}
+
+
+/* モバイル */
+@media only screen and (max-width: 750px) {
+	table#desc_edit th.h_txt {
+			padding: 12px 8px 12px 12px;
+	}
+	table#desc_edit td {
+		padding: 4px 16px;
+	}
+
+	td.name span {
+		font-size: 90%;
+	}
+	/* 名前 */
+	table#td.name {
+		width: 12%;		
+		min-width: 80px;
+		max-width: 160px;
+		padding: 4px;
+	}
+	table#chara td.sex {
+		font-size: 80%;
+	}	
+	table#chara td.voice_count {
+		font-size: 80%;
+	}
+	table#chara td.description {
+		padding-left: 16px;
+	}	
+}
+
+/*======================================================
+/* 台本テーブル（横書き）
+//=====================================================*/
+
+/* 台本テーブル */
+table.script {
+	width: 100%;
+	margin: 40px 0;
+}
+table.script th {
+	padding: 0px;
+	font-size: 80%;
+	text-align: center;
+}
+table.script td {
+	/*cursor: pointer;*/
+	padding: 12px 16px;
+	background-color: #ffffff;
+}
+td.check_mark {
+	width: 1px;
+	padding: 0px;
+	background-color: #fbf8e5;
+  border-right: solid 1px #CCCCCC;
+}
+td.name {
+	width: 12%;
+	padding: 8px 4px;
+	text-align: center;
+	/*border: solid 1px #999999;*/
+}
+
+/* キャラ名 */
+table.script td.name{
+	font-size: 85%;/*90%;*/
+	border-right: solid 0px #CCCCCC;
+}
+table.script td.name span{
+  width: 70%;
+  padding: 6px 0px; 
+}
+tr.narration td.name span {
+	color: #FFFFFF;
+	/*background-color: transparent;*/
+}
+td.name span.ffffff {
+  /*background: #ffffff;*/ 
+	background: transparent;
+}
+
+/* 本文 */
+table.script td.text {
+	width: 89%;
+	padding: 24px 12px;/*12px 12px;*/
+	line-height: 120%;
+}	
+
+table.script td {
+	border-top: solid 1px #bcbcbc;	
+}	
+
+/* 編集用パスワード入力用フォーム */
+#input_password_form_body {
+  padding-left: 20px;
+}
+#input_password_form_footer button {
+  font-size: 120%;
+}
+
+/* 台本テーブル モバイル */
+@media only screen and (max-width: 750px) {
+	table.script th.name {
+			width: 10%;
+	}
+
+	table.script td.name {
+		width: 60px; /*80px;*/
+		padding: 0px;
+	}
+	
+	table.script td.name span {
+		width: 60%;
+		display: block;
+		margin: 0px auto;
+		padding: 8px 2px;        
+	 	border-radius: 2px;
+		font-size: 95%;/*85%;*/
+	}	
+	/* 本文 */
+	table.script td.text {
+		width: 92%;
+    margin-left: -10px;
+		padding: 20px 8px 20px 0px;        
+		line-height: 160%;
+	}		
+}
+
+/* 縦書きに切り替え */
+#show_by_vertical_button_area {
+	margin: 20px 0px -20px;
+}
+#show_by_vertical_button_area input {
+	padding: 4px 12px;
+	font-size: 90%;
+	color: #333333;
+}
+
+/*======================================================
+/* 台本描画欄（縦書き）
+//=====================================================*/
+
+/* モーダル背景 */
+#vertical_modal_container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 36px 8px;
+	overflow: auto;
+  background: #666666; 
+	opacity: 0;
+	transition: .3s;	
+	visibility: hidden;
+	box-sizing: border-box;
+}
+/* モーダル背景 アクティブ時 */
+#vertical_modal_container.active{
+	opacity: 1;
+	visibility: visible;
+}  
+/* モーダル本体 */
+div#vertical_modal_body {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	height: 95%;
+}
+/* 閉じるボタンの枠 */
+div#vertical_button_area {
+	width: 100%;
+	padding: 8px 8px;
+	text-align: right;
+	font-size: 100%;
+	background-color: #EDE3CB;	
+	border: solid 1px #666666;
+}
+/* 閉じるボタン */
+div#vertical_button_area input {
+	font-size: 90%;
+	background-color: #ffffff;
+}
+div#vertical_button_area input:hover {
+	font-size: 90%;
+	background-color: #666666;
+}
+/* 台本描画欄 */
+div#vertical_script_area  {
+	width: 100%;	
+	height: 100% auto;	
+	min-height: 600px;
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	overflow: scroll;
+	padding: 16px 36px;
+	background-color: #ffffff;
+	border-right: solid 1px #333333;	
+	border-left: solid 1px #333333;		
+	border-bottom: solid 1px #333333;	
+}
+/* 台本描画欄 キャラ名 + セリフ */
+div#vertical_script_area div {
+	padding: 4px;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+/* キャラ名 */
+div#vertical_script_area span {
+	display: block;
+	min-height: 80px;
+	height: fit-content;
+	padding: 4px 0px;
+    border-radius: 4px;
+}
+
+/* セリフ */
+div#vertical_script_area p {
+	margin: 12px 12px;
+	font-size: 120%;	
+	cursor: pointer;
+}
+
+/* 縦書き第本描画欄 モバイル */
+@media only screen and (max-width: 750px) {
+	div#vertical_button_area {
+		font-size: 80%;
+	}	
+	div#vertical h2 {
+		font-size: 120%;
+		margin-left: 30px;
+	}
+	div#vertical_script_area span {
+		font-size: 90%;
+		padding: 6px 4px 6px 2px;
+	}
+	div#vertical_script_area p {
+		margin: 8px 8px;
+		font-size: 105%; /*110%*/
+	}	
+}
+
+/* 縦書き第本描画欄 モバイル */
+@media (orientation: landscape) {
+	/* モーダル背景 */
+	#vertical_modal_container {
+		padding: 0px 10px;
+	}
+	/* ボタンエリア */
+	div#vertical_button_area {
+		width: 100%;
+		padding: 4px 4px;
+		text-align: right;
+		font-size: 100%;
+		background-color: #EDE3CB;	
+		border: solid 1px #666666;
+	}
+	div#vertical_button_area input {
+		font-size: 80%;
+		background-color: #ffffff;
+	}
+	div#vertical_script_area p {
+		margin: 8px 8px;
+		font-size: 100%;
+	}	
+}
+
+/*======================================================
+/* 
+/* 4. 台本編集ページ
+/* 
+/*======================================================*/
+
+/*======================================================
+/* 概要説明テーブル
+/======================================================*/
+
+/* 概要説明テーブル */
+table#desc_edit {
+	margin-bottom: 100px;
+    border: solid 1px #999999;   
+}
+table#desc_edit td {
+	padding: 4px 30px; 
+}
+table#desc_edit th {
+	padding: 4px 20px;
+	border-right: #999999 1px solid;
+	border-bottom: #999999 1px solid;
+}
+/* テキストボックス */
+table#desc_edit input {
+	width: 100%;
+  	max-width: 400px;
+}
+/* コンボボックス */
+table#desc_edit select {
+  padding: 4px;
+}
+/* 時間 */
+table#desc_edit select#minutes_cb {
+	width: 120px;
+}
+/* 人数 */
+table#desc_edit select#chara_count_cb {
+	width: 120px;
+}
+/* 台本説明 テキストエリア */
+table#desc_edit #desc_tb {
+  width: 100%;
+}
+table#desc_edit small {
+	color: #444444;
+}
+table#desc_edit .script_format {
+	/*padding-top: 16px;*/
+}
+table#desc_edit .script_file {
+	padding-top: 16px;
+}
+/* 補足説明 */
+table#desc_edit .explain {
+	margin-top: 8px;
+}
+/* 概要説明 */
+table#desc_edit td.description {
+	/*white-space: pre;*/
+}
+
+/* 概要説明テーブル モバイル */
+@media only screen and (max-width: 750px) {
+	table#desc_edit th {
+		font-size: 80%;
+	}
+}
+
+/* 削除ボタンエリア */
+.edit_button_area {
+	margin-bottom: 80px;
+}
+
+/*======================================================
+/* キャラ説明テーブル
+/======================================================*/
+
+/* キャラ説明テーブル */
+table#chara_edit {
+	margin-bottom: 120px;
+}
+table#chara_edit td {
+	text-align: center;
+	padding: 4px;
+}
+table#chara_edit td.title { 
+	width: 20%;
+	min-width: 120px;
+}
+table#chara_edit .description {
+	padding: 8px;
+}
+table#chara_edit textarea {
+	width: 95%;
+}
+
+table#chara_edit input {
+	width: 80%;
+}
+/* コンボボックス */
+table#chara_edit select {
+  padding: 4px;
+}
+
+/* キャラ説明テーブル モバイル */
+@media only screen and (max-width: 750px) {
+	table#chara_edit th {
+		font-size: 80%;
+	}		
+	table#chara_edit td {
+		text-align: center;
+		padding: 4px;
+	}		
+    table#chara_edit td.title { 
+		width: 10%;		
+	}
+    table#chara_edit td.sex { 
+		font-size: 90%;
+	}
+    table#chara_edit td.description { 
+
+	}
+    table#chara_edit td.color_cord { 
+		min-width: 60px;
+		font-size: 80%;
+	}	
+    table#chara_edit td.color_cord { 
+		min-width: 60px;
+	}	
+	table#chara_edit input {
+		width: 90%;
+	}	
+
+}
+
+
+/* ボタンエリア*/
+div#bottom_bottun_area {
+  margin-bottom: 80px;
+  border: solid 0px #999999;
+}
+
+/* 内容確認ボタン */
+div#bottom_bottun_area button {
+  padding: 16px 80px;
+  font-size: 140%;
+}
+/* 戻るボタン */
+div#bottom_bottun_area input {
+  padding: 16px 40px;
+  font-size: 140%;
+}
+
+@media only screen and (max-width: 750px) {
+	div#bottom_bottun_area button {
+		padding: 16px 40px;
+		font-size: 140%;
+	  }
+	  /* 戻るボタン */
+	  div#bottom_bottun_area input {
+		padding: 16px 40px;
+		font-size: 140%;
+	  }
+}
+
+/* メールアドレス記載用 */
+.domain::before {
+	content: '@';
+ }
+
+/*======================================================
+/* 
+/* 5. 利用規約ページ
+/* 
+/*======================================================*/
+
+p.guideline {
+  border: solid 1px #999999;
+}
+ul.guideline {
+	margin-top: 10px;
+	margin-bottom: 60px;
+	padding-top: 40px;
+	border-top: solid 1px #999999;
+}
+
+ul.guideline li {
+	margin: 4px 0px;
+	border: solid 0px #f0f7fc;
+}
+
+@media only screen and (max-width: 750px) {
+	ul.guideline li {
+		margin: 4px -8px;
+	}
+}
+/*======================================================
+/* ガイドラインテーブル
+/======================================================*/
+
+
+table#gideline {
+    width: 95%;
+    margin: 10px auto;
+    margin-bottom: 100px;
+}
+table#gideline td {
+	padding: 8px 12px;
+	border-right: #999999 1px solid;
+}
+table#gideline th {
+	padding: 4px 4px;
+	border-right: #999999 1px solid;
+	border-bottom: #999999 1px solid;
+    text-align: center;
+    font-size: 90%;
+}
+
+/*======================================================
+/* スクロールエリア
+/======================================================*/
+
+.sample {
+    background-color: #f0f0f0;
+}
+
+
+/*======================================================
+/*
+/* 10. キャラ名の色分け
+/*
+//=====================================================*/
+
+/* 青 */
+span.e2f2fe {
+	background: #91b0c8;
+  color: #00335a;    
+	border: solid 1px #add1ec;	
+}
+/* 緑 */
+span.edf9d7 {
+  background: #edf9d7;
+  border: solid 1px #c1db90;	
+}
+/* 黄色 */
+span.fbf8c4 {
+	background: #fbf9ce; 
+	color: #4b4700;    
+	border: solid 1px #d6d27f;	
+}
+/* ピンク */
+span.ffe0e0 {
+	background: #ffe0e0;
+  color: #6a0000;
+	border: solid 1px #edb4b4;	
+}
+/* 茶色 */
+span.f7eed0 {
+  background: #f7eed0;
+  border: solid 1px #e7cf80;	
+}
+/* 紫 */
+span.f4d9fb {
+	background: #f4d9fb;
+	border: solid 1px #e4abf3;	
+}
+/* オレンジ */
+span.fedbb4 {
+	background: #fee8ce;
+  border: solid 1px #f4cda4;	
+}
+/* エメラルドグリーン */
+span.e0fcf4 {
+	background: #e0fcf4;
+  border: solid 1px #86cebc;	
+}
+/* グレー */
+span.dedede {
+	background: #dedede;
+  border: solid 1px #9c9b9b;	
+}
+/* グレー2 */
+span.e9e9e9 {
+	background: #e9e9e9;
+  border: solid 1px #a8a8a8;	
+}
+/* 白 */
+span.ffffff {
+	color: #ffffff;
+	background: #ffffff; 
+	/*color: transparent;*/
+}
+span.brown {
+	background: #a27669;
+	color: #FFFFFF;	
+	border: solid 1px #9a3f24;		
+}
+
+/* その他キャラ */
+span.otherChara {
+	background: #f7f7f7;
+  border: solid 1px #a8a8a8;	
+}
+
+/*
+span.e2f2fe {
+	background: #91b0c8;
+  color: #00335a;    
+	border: solid 1px #9abbd4;	
+}
+span.edf9d7 {
+  background: #edf9d7;
+  border: solid 1px #a2bd6a;	
+}
+span.fbf8c4 {
+	background: #fbf9ce; 
+	color: #4b4700;    
+	border: solid 1px #b9b747;	
+}
+span.ffe0e0 {
+	background: #ffe0e0;
+  color: #6a0000;
+	border: solid 1px #e7a2a2;	
+}
+span.f7eed0 {
+  background: #f7eed0;
+  border: solid 1px #c2aa5c;	
+}
+span.f2cffc {
+	background: #f2cffc;
+	border: solid 1px #e289f8;	
+}
+span.fedbb4 {
+	background: #fedbb4;
+  border: solid 1px #fece9a;	
+}
+span.dedede {
+	background: #dedede;
+  border: solid 1px #565656;	
+}
+
+span.e9e9e9 {
+	background: #e9e9e9;
+  border: solid 1px #565656;	
+}
+span.ffffff {
+	color: #ffffff;
+	background: #ffffff; 
+}
+
+span.brown {
+	background: #a27669;
+	color: #FFFFFF;	
+	border: solid 1px #9a3f24;		
+}*/
+
+
+/* カラーコード入力欄用 */
+.chara_0 {
+	background: #e2f2fe;
+}
+.chara_1 {
+	background: #edf9d7;
+}
+.chara_2 {
+	background: #fbf8c4; 
+}
+.chara_3 {
+	background: #f7eed0;
+}
+/* ピンク */
+.chara_4 {
+	background: #ffe0e0;
+}
+/* 紫 */
+.chara_5 {
+	background: #f4d9fb;
+}
+/* オレンジ */
+.chara_6 {
+	background: #fedbb4;
+}
+/* エメラルドグリーン */
+.chara_7 {
+	background: #e0fcf4;
+}
+/* グレー */
+.chara_8 {
+	background: #dedede;
+}
+.chara_10 {
+	background: #ffffff;
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta charset="utf-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1">
+	<link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src = "https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel = "stylesheet" href="./assets/css/style.css" />
+	<script src = "./assets/js/common.js" ></script>
+</head>
+<body>
+	<header>
+		<div class = "container">			
+			<div class = "row">
+				<div class = "col-1" id = "logo_img">			
+					<img src = "./assets/img/pc_cat.jpeg" width = "60px" />
+				</div>
+				<div class = "col-9" id = "logo_text">
+					<img src = "./assets/img/logo.png" width = "100px" />					
+				</div>
+			</div> 
+		</div>			
+	</header>
+
+	<!-- ナビゲーションバー -->
+	<nav class = "navbar-expand-lg navbar-dark bg-dark">
+		<div class = "container">				
+			<a class = "navbar-brand mr-auto" href = "#">TOP</a>　
+			<a class = "navbar-brand mr-auto" href = "#">台本一覧</a>　
+			<a class = "navbar-brand mr-auto" href = "#">台本投稿</a>　
+		</div>
+	</nav>
+
+	<!-- メイン領域 -->
+	<div id = "main">
+		<div class = "container">	
+			
+
+<!--    
+//======================================================
+	ここからPHPにコピペ可 
+//======================================================
+-->
+
+
+
+
+
+<!-- 見出し -->
+<div class = "row"> 
+	<h2 class = "blue">概要　　<small>台本の概要を記入してください。</small></h2>
+</div>
+
+<form action = "<?php echo Uri::create('script/edit_confirm'); ?>" method = "post">
+	<!-- 説明描画用テーブル -->
+	<table id="desc_edit" class = "col-12">
+		<tr>
+			<th class = "h_txt" style="width: 20%">タイトル</th>
+			<td>
+				<input type = "text" id = "title_txt_box" name = "title" placeholder="例：星の王子さま" />						
+			</td>
+		</tr>
+		<tr>
+			<th class = "h_txt">作者名</th>
+			<td>
+				<input type = "text" id = "author_txt_box" name = "author_name" placeholder="例：田中" />								
+			</td>					
+		</tr>				
+		<tr>
+			<th class = "h_txt">ジャンル</th>
+			<td>
+				<select name = "genre">
+					<option>コメディ</option>
+					<option>ファンタジー</option>
+					<option>ラブストーリー</option>
+					<option>ホラー</option>
+					<option>童話</option>							
+					<option>その他</option>
+				</select>						
+			</td>					
+		</tr>
+		<tr>
+			<th class = "h_txt">時間</th>
+			<td>
+				<select name = "minutes" id = "minutes_cb">
+					<option value = "10">10</option>
+					<option value = "20">20</option>
+					<option value = "30">30</option>
+					<option value = "40">40</option>
+					<option value = "50">50</option>
+					<option value = "60">60</option>
+					<option value = "70">70</option>
+					<option value = "80">80</option>
+					<option value = "90">90</option>																									
+				</select>		
+				分					
+			</td>					
+		</tr>
+		<tr>
+			<th class = "h_txt">人数</th>
+			<td>
+				<select name = "chara_count" id = "chara_count_cb">
+					<option value = "1">1</option>
+					<option value = "2">2</option>
+					<option value = "3">3</option>
+					<option value = "4">4</option>
+					<option value = "5">5</option>
+					<option value = "6">6</option>
+					<option value = "7">7</option>
+					<option value = "8">8</option>
+					<option value = "9">9</option>					
+				</select>	
+				人							
+			</td>					
+		</tr>		
+		<tr>
+			<th class = "h_txt">二次利用の可否</th>
+			<td>
+				<select name = "reusable">
+					<option>可（ご自由にお使いください）</option>
+					<option>不可</option>
+				</select>							
+			</td>
+		</tr>						
+		<tr>
+			<th class = "h_txt">説明</th>
+			<td>
+				<textarea id = "desc_tb" rows = "8" name = "explain" placeholder = "台本の概要説明を記入してください。"></textarea>
+			</td>					
+		</tr>
+		<tr>
+			<th class = "h_txt">編集用パスワード<br />
+				<small>※今後の編集時に必要になります。</small>				
+			</th>
+			<td>
+				<input type = "text" id = "edit_pass_tb" name = "edit_password" placeholder = "" style = ”ime-mode:disabled;” />								
+			</td>					
+		</tr>			
+		<tr>
+			<th class = "h_txt">台本ファイル<br />
+				<small>※ボイコネフォーマットのテキストファイルを投稿できます。</small>
+			</th>
+			<td>
+				<input type = "file" id = "file_select_btn" name = "text_file_path" accept="text/plain" required />
+				<!-- テキストデータセット用 -->
+				<textarea id = "script_body_tb" name = "script_body" rows="8" class = "d-none"></textarea>
+			</td>					
+		</tr>			
+	</table>
+
+	<!-- 見出し -->
+	<div class = "row"> 
+		<h2 class = "blue">キャラ説明　　<small>キャラクターの説明を記入してください。</small></h2>
+	</div>
+
+	<!-- キャラ説明描画用テーブル -->
+	<table id="chara_edit" class = "col-12 list">
+		<tr>
+			<th class = "h_txt" style = "width: 20%">キャラクター名</th>
+			<th class = "h_txt" style = "width: 10%">性別</th>					
+			<th class = "h_txt" style = "width: 70%">説明</th>	
+		</tr>				
+
+		<!-- ループ -->
+		<?php for($i = 0; $i < 10; $i++) { ?>
+		<tr id = "chara_row_<?php echo $i; ?>" class = "d-none">
+			<td><input type = "text" name = "chara_name_<?php echo $i; ?>" class = "chara_name_tb" placeholder="例：田中"/></td>
+			<td>
+				<select name = "chara_sex_<?php echo $i; ?>">
+					<option>男</option>
+					<option>女</option>
+					<option>不問</option>
+				</select>
+			</td>					
+			<td><input type = "text" name = "chara_explain_<?php echo $i; ?>" placeholder="キャラの説明を記入してください。" size="100" /></td>		
+		</tr>
+		<?php } ?>
+		<!-- ループここまで -->
+	</table>		
+
+	<!-- ボタン -->
+	<div id = "bottom_bottun_area">
+		<div class = "row">
+			<div class = "col-4">
+			</div>
+			<div class = "col-4 text-center">
+				<input type = "submit" id = "dummy_submit_confirm_button" class="btn btn-outline-secondary" value = "内容を確認"></input>
+				<!-- hidden要素。ID -->
+				<input type = "hidden" name = "id" />
+			</div>
+			<div class = "col-4">
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+
+
+
+<!--    
+//======================================================
+	ここまでPHPにコピペ可 
+//======================================================
+-->
+
+
+
+		</div>
+	</div>
+
+</body>
